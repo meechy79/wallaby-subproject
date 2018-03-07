@@ -1,0 +1,17 @@
+{
+  "name": "subproject",
+  "version": "0.0.0-development",
+  "description": "Subproject",
+  "main": "./bundles/subproject.umd.js",
+  "module": "./subproject.es5.js",
+  "es2015": "./subproject.js",
+  "typings": "./subproject.d.ts",
+  "keywords": [
+    "subproject"
+  ],
+  "dependencies": {},
+  "peerDependencies": {
+    "@angular/core": "^5.2.0",
+    "@angular/common": "^5.2.0"
+  }
+}
