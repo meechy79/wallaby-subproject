@@ -1,9 +1,6 @@
 var wallabyWebpack = require('wallaby-webpack');
 var path = require('path');
 
-const ProgressPlugin = require('webpack/lib/ProgressPlugin');
-const { AngularCompilerPlugin } = require('@ngtools/webpack');
-
 var compilerOptions = Object.assign(
   require('./tsconfig.json').compilerOptions,
   require('./src/tsconfig.spec.json').compilerOptions);
@@ -22,7 +19,7 @@ module.exports = function (wallaby) {
       rules: [
         {test: /\.css$/, loader: ['raw-loader', 'css-loader']},
         {test: /\.html$/, loader: 'raw-loader'},
-        {test: /\.ts$/, loader: '@ngtools/webpack'}, // include: /node_modules/, query: { tsConfigPath: 'tsconfig.json' } } ,
+        {test: /\.ts$/, loader: '@ngtools/webpack', include: [/node_modules/, path.join(__dirname, '..')], query: { tsConfigPath: 'tsconfig.json' } } ,
         {test: /\.js$/, loader: 'angular2-template-loader', exclude: /node_modules/ },
         {test: /\.json$/, loader: 'json-loader'},
         {test: /\.styl$/, loaders: ['raw-loader', 'stylus-loader']},
@@ -41,16 +38,6 @@ module.exports = function (wallaby) {
         'node_modules',
       ]
     },
-
-    plugins: [
-      // new ProgressPlugin(),
-      new AngularCompilerPlugin({
-        tsConfigPath: 'src/tsconfig.spec.json',
-        compilerOptions: {
-          preserveSymlinks: true
-        }
-      })
-    ],
 
     node: {
       fs: 'empty',
