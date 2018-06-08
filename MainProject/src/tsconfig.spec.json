@@ -10,11 +10,11 @@
     ]
   },
   "files": [
-    "test.ts"
+    "test.ts",
+    "polyfills.ts"
   ],
   "include": [
     "**/*.spec.ts",
-    "**/*.d.ts",
-    "../node_modules/subproject/index.ts"
+    "**/*.d.ts"
   ]
 }

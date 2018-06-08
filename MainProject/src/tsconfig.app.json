@@ -12,7 +12,6 @@
     "src/wallaby.test.js"
   ],
   "include": [
-    "**/*.ts",
-    "../node_modules/subproject/index.ts"
+    "**/*.ts"
   ]
 }
