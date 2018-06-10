@@ -1,5 +1,6 @@
 var wallabyWebpack = require('wallaby-webpack');
 var path = require('path');
+const { AngularCompilerPlugin } = require('@ngtools/webpack');
 
 var compilerOptions = Object.assign(
   require('./tsconfig.json').compilerOptions,
@@ -17,11 +18,10 @@ module.exports = function (wallaby) {
 
     module: {
       rules: [
-        {test: /\.css$/, loader: ['raw-loader', 'css-loader']},
+        {test: /\.css$/, loader: ['raw-loader']},
         {test: /\.html$/, loader: 'raw-loader'},
         {test: /\.ts$/, loader: '@ngtools/webpack', include: [/node_modules/, /subproject/], query: { tsConfigPath: 'tsconfig.json' } } ,
         {test: /\.js$/, loader: 'angular2-template-loader', exclude: /node_modules/ },
-        {test: /\.json$/, loader: 'json-loader'},
         {test: /\.styl$/, loaders: ['raw-loader', 'stylus-loader']},
         {test: /\.less$/, loaders: ['raw-loader', 'less-loader']},
         {test: /\.scss$|\.sass$/, loaders: ['raw-loader', 'sass-loader']},
@@ -39,6 +39,16 @@ module.exports = function (wallaby) {
       ]
     },
 
+    plugins: [
+      new AngularCompilerPlugin({
+        tsConfigPath: '../SubProject/tsconfig.json',
+        skipCodeGeneration: true,
+        compilerOptions: {
+          preserveSymlinks: true
+        }
+      })
+    ],
+
     node: {
       fs: 'empty',
       net: 'empty',
@@ -50,7 +60,7 @@ module.exports = function (wallaby) {
   return {
     files: [
       {pattern: 'src/**/*.+(ts|css|less|scss|sass|styl|html|json|svg)', load: false},
-      'package.json',
+      {pattern: 'package.json', load: false},
       {pattern: 'src/**/*.d.ts', ignore: true},
       {pattern: 'src/**/*spec.ts', ignore: true},
     ],
