@@ -9,9 +9,11 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "src/wallaby.test.js"
+    "src/wallaby.test.js",
+    "../node_modules/subproject/**/*.spec.ts"
   ],
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "../node_modules/subproject/**/*.ts"
   ]
 }

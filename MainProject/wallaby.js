@@ -20,7 +20,7 @@ module.exports = function (wallaby) {
       rules: [
         {test: /\.css$/, loader: ['raw-loader']},
         {test: /\.html$/, loader: 'raw-loader'},
-        {test: /\.ts$/, loader: '@ngtools/webpack', include: [/node_modules/, /subproject/], query: { tsConfigPath: 'tsconfig.json' } } ,
+        {test: /\.ts$/, loader: '@ngtools/webpack', include: [/node_modules/, /subproject/]} ,
         {test: /\.js$/, loader: 'angular2-template-loader', exclude: /node_modules/ },
         {test: /\.styl$/, loaders: ['raw-loader', 'stylus-loader']},
         {test: /\.less$/, loaders: ['raw-loader', 'less-loader']},

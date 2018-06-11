@@ -14,7 +14,7 @@ describe('AppComponent', () => {
     });
   });
 
-  it('should render suproect component', async(() => {
+  it('should render subproject component', async(() => {
     // require('subproject')//?
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
