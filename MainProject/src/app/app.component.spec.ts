@@ -1,15 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { SubProjectComponent } from 'subproject';
+import { SubProjectComponentModule, SubProjectComponent } from 'subproject';
 import { Version } from './version';
 
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        SubProjectComponentModule
+      ],
       declarations: [
-        AppComponent,
-        SubProjectComponent
+        AppComponent
       ],
     });
   });

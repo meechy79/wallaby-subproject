@@ -1,2 +1,2 @@
-export * from './component';
 export * from './module';
+export * from './subproject-component';

@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { SubProjectComponent } from './component';
+import { SubProjectComponentModule } from './subproject-component';
 
 @NgModule({
-    imports: [ CommonModule ],
-    declarations: [ SubProjectComponent ],
-    exports: [ SubProjectComponent ]
+    imports: [ SubProjectComponentModule ]
 })
 export class SubProjectModule {}

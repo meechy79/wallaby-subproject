@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { SubProjectModule } from 'subproject';
+import { SubProjectComponentModule } from 'subproject';
 
 
 @NgModule({
@@ -12,7 +12,7 @@ import { SubProjectModule } from 'subproject';
   ],
   imports: [
     BrowserModule,
-    SubProjectModule
+    SubProjectComponentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
